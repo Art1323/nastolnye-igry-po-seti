@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаСоздатьИгру" id="10">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СоздатьИгру</CommandName>
+				<ExtendedTooltip name="ФормаСоздатьИгруРасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="ФормаПодключиться" id="12">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Подключиться</CommandName>
+				<ExtendedTooltip name="ФормаПодключитьсяРасширеннаяПодсказка" id="13"/>
+			</Button>
+			<Button name="ФормаЛокальнаяИгра" id="14">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЛокальнаяИгра</CommandName>
+				<ExtendedTooltip name="ФормаЛокальнаяИграРасширеннаяПодсказка" id="15"/>
+			</Button>
+			<Button name="ФормаИграСБотом" id="20">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ИграСБотом</CommandName>
+				<ExtendedTooltip name="ФормаИграСБотомРасширеннаяПодсказка" id="21"/>
+			</Button>
+			<Button name="ФормаОбновить" id="16">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="17"/>
+			</Button>
+			<Button name="ФормаСдаться" id="18">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Сдаться</CommandName>
+				<ExtendedTooltip name="ФормаСдатьсяРасширеннаяПодсказка" id="19"/>
+			</Button>
+			<Button name="ФормаНачатьМатч" id="24">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.НачатьМатч</CommandName>
+				<ExtendedTooltip name="ФормаНачатьМатчРасширеннаяПодсказка" id="25"/>
+			</Button>
+			<Button name="ФормаХодНазад" id="22">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ХодНазад</CommandName>
+				<ExtendedTooltip name="ФормаХодНазадРасширеннаяПодсказка" id="23"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаСеть" id="100">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сеть</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>true</ShowTitle>
+			<ExtendedTooltip name="ГруппаСетьРасширеннаяПодсказка" id="101"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаТипИгры" id="105">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаТипИгрыРасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<InputField name="ТипИгры" id="107">
+							<DataPath>ТипИгры</DataPath>
+							<Width>16</Width>
+							<DropListButton>true</DropListButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="ТипИгрыКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="ТипИгрыРасширеннаяПодсказка" id="109"/>
+							<Events>
+								<Event name="OnChange">ТипИгрыПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПуть" id="110">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПутьРасширеннаяПодсказка" id="111"/>
+					<ChildItems>
+						<InputField name="ПутьКПапке" id="112">
+							<DataPath>ПутьКПапке</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ПутьКПапкеКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ПутьКПапкеРасширеннаяПодсказка" id="114"/>
+						</InputField>
+						<Button name="ВыбратьПапку" id="115">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ВыбратьПапку</CommandName>
+							<ExtendedTooltip name="ВыбратьПапкуРасширеннаяПодсказка" id="116"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИмена" id="120">
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИменаРасширеннаяПодсказка" id="121"/>
+					<ChildItems>
+						<InputField name="ИмяИгрока" id="122">
+							<DataPath>ИмяИгрока</DataPath>
+							<Width>16</Width>
+							<ContextMenu name="ИмяИгрокаКонтекстноеМеню" id="123"/>
+							<ExtendedTooltip name="ИмяИгрокаРасширеннаяПодсказка" id="124"/>
+						</InputField>
+						<InputField name="КодПартии" id="125">
+							<DataPath>КодПартии</DataPath>
+							<Width>16</Width>
+							<ContextMenu name="КодПартииКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="КодПартииРасширеннаяПодсказка" id="127"/>
+						</InputField>
+						<CheckBoxField name="ОбязательноеВзятие" id="128">
+							<DataPath>ОбязательноеВзятие</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОбязательноеВзятиеКонтекстноеМеню" id="129"/>
+							<ExtendedTooltip name="ОбязательноеВзятиеРасширеннаяПодсказка" id="130"/>
+							<Events>
+								<Event name="OnChange">ОбязательноеВзятиеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="РазмерКолоды" id="410">
+							<DataPath>РазмерКолоды</DataPath>
+							<Width>8</Width>
+							<DropListButton>true</DropListButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="РазмерКолодыКонтекстноеМеню" id="411"/>
+							<ExtendedTooltip name="РазмерКолодыРасширеннаяПодсказка" id="412"/>
+							<Events>
+								<Event name="OnChange">НастройкиДуракаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<CheckBoxField name="ПереводнойДурак" id="413">
+							<DataPath>ПереводнойДурак</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПереводнойДуракКонтекстноеМеню" id="414"/>
+							<ExtendedTooltip name="ПереводнойДуракРасширеннаяПодсказка" id="415"/>
+							<Events>
+								<Event name="OnChange">НастройкиДуракаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСтатус" id="200">
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСтатусРасширеннаяПодсказка" id="201"/>
+			<ChildItems>
+				<LabelField name="ТекстСтатуса" id="202">
+					<DataPath>ТекстСтатуса</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТекстСтатусаКонтекстноеМеню" id="203"/>
+					<ExtendedTooltip name="ТекстСтатусаРасширеннаяПодсказка" id="204"/>
+				</LabelField>
+				<LabelField name="ТекстХода" id="205">
+					<DataPath>ТекстХода</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="ТекстХодаКонтекстноеМеню" id="206"/>
+					<ExtendedTooltip name="ТекстХодаРасширеннаяПодсказка" id="207"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<HTMLDocumentField name="ДоскаHTML" id="300">
+			<DataPath>ДоскаHTML</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<Width>80</Width>
+			<Height>40</Height>
+			<ContextMenu name="ДоскаHTMLКонтекстноеМеню" id="301"/>
+			<ExtendedTooltip name="ДоскаHTMLРасширеннаяПодсказка" id="302"/>
+			<Events>
+				<Event name="OnClick">ДоскаHTMLПриНажатии</Event>
+			</Events>
+		</HTMLDocumentField>
+		<UsualGroup name="ГруппаХодВручную" id="400">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ход координатами</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>true</ShowTitle>
+			<ExtendedTooltip name="ГруппаХодВручнуюРасширеннаяПодсказка" id="401"/>
+			<ChildItems>
+				<InputField name="КлеткаИз" id="402">
+					<DataPath>КлеткаИз</DataPath>
+					<Width>8</Width>
+					<ContextMenu name="КлеткаИзКонтекстноеМеню" id="403"/>
+					<ExtendedTooltip name="КлеткаИзРасширеннаяПодсказка" id="404"/>
+				</InputField>
+				<InputField name="КлеткаВ" id="405">
+					<DataPath>КлеткаВ</DataPath>
+					<Width>8</Width>
+					<ContextMenu name="КлеткаВКонтекстноеМеню" id="406"/>
+					<ExtendedTooltip name="КлеткаВРасширеннаяПодсказка" id="407"/>
+				</InputField>
+				<Button name="СделатьХод" id="408">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.СделатьХод</CommandName>
+					<ExtendedTooltip name="СделатьХодРасширеннаяПодсказка" id="409"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:ExternalDataProcessorObject.НастольныеИгрыПоСети</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПутьКПапке" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая папка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяИгрока" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ваше имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КодПартии" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код партии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстСтатуса" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстХода" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ход</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоскаHTML" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КлеткаИз" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Из</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КлеткаВ" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимИгры" id="10">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="МойЦветБелые" id="11">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Доска" id="12">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ХодБелых" id="13">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтатусПартии" id="14">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>30</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВерсияПартии" id="15">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыбранаСтрока" id="16">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыбранаКолонка" id="17">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦепочкаВзятия" id="18">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоследнийХод" id="19">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяХоста" id="20">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяГостя" id="21">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВзятыеКлетки" id="22">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбязательноеВзятие" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обязательное взятие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипИгры" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игра</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РокировкаПрава" id="25">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>8</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолеEP" id="26">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипИгрыСетевой" id="27">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыборПасьянса" id="28">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсторияОтменыПасьянса" id="29">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазмерКолоды" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Колода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПереводнойДурак" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переводной</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МойИндексИгрока" id="32">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДуракTurnId" id="33">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДуракХодНачатМс" id="34">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>20</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДуракМатчНачатМс" id="35">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>20</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДуракПульсКэш" id="36">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДуракПульсВремя" id="37">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>120</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьИгру" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать игру</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать партию в общей папке (вы белые, хост).</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьИгру</Action>
+		</Command>
+		<Command name="Подключиться" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключиться</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подключиться к партии по коду (вы чёрные, гость).</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Подключиться</Action>
+		</Command>
+		<Command name="ЛокальнаяИгра" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локально</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игра вдвоём за одним компьютером.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЛокальнаяИгра</Action>
+		</Command>
+		<Command name="ИграСБотом" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>С ботом</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Играть одному против компьютера (вы — белые).</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИграСБотом</Action>
+		</Command>
+		<Command name="Обновить" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитать состояние партии из файла.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Обновить</Action>
+		</Command>
+		<Command name="Сдаться" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сдаться</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершить партию поражением.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сдаться</Action>
+		</Command>
+		<Command name="ХодНазад" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить последний ход в пасьянсе.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ХодНазад</Action>
+		</Command>
+		<Command name="НачатьМатч" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начать матч</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дурак: начать раздачу, не дожидаясь всех 4 игроков (нужно минимум 2).</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НачатьМатч</Action>
+		</Command>
+		<Command name="ВыбратьПапку" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Папка...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать общую папку для обмена ходами.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьПапку</Action>
+		</Command>
+		<Command name="СделатьХод" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ход</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сделать ход по координатам, например a3 и b4.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СделатьХод</Action>
+		</Command>
+	</Commands>
+</Form>
