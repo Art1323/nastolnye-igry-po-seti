@@ -39,6 +39,21 @@
 				<CommandName>Form.Command.НачатьМатч</CommandName>
 				<ExtendedTooltip name="ФормаНачатьМатчРасширеннаяПодсказка" id="25"/>
 			</Button>
+			<Button name="ФормаПереподключиться" id="26">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Переподключиться</CommandName>
+				<ExtendedTooltip name="ФормаПереподключитьсяРасширеннаяПодсказка" id="27"/>
+			</Button>
+			<Button name="ФормаОбновитьСписокКомнат" id="28">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОбновитьСписокКомнат</CommandName>
+				<ExtendedTooltip name="ФормаОбновитьСписокКомнатРасширеннаяПодсказка" id="29"/>
+			</Button>
+			<Button name="ФормаОчиститьСтарыеПартии" id="30">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОчиститьСтарыеПартии</CommandName>
+				<ExtendedTooltip name="ФормаОчиститьСтарыеПартииРасширеннаяПодсказка" id="31"/>
+			</Button>
 			<Button name="ФормаХодНазад" id="22">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ХодНазад</CommandName>
@@ -120,6 +135,13 @@
 							<ContextMenu name="КодПартииКонтекстноеМеню" id="126"/>
 							<ExtendedTooltip name="КодПартииРасширеннаяПодсказка" id="127"/>
 						</InputField>
+						<InputField name="ПарольКомнаты" id="520">
+							<DataPath>ПарольКомнаты</DataPath>
+							<Width>12</Width>
+							<PasswordMode>true</PasswordMode>
+							<ContextMenu name="ПарольКомнатыКонтекстноеМеню" id="521"/>
+							<ExtendedTooltip name="ПарольКомнатыРасширеннаяПодсказка" id="522"/>
+						</InputField>
 						<CheckBoxField name="ОбязательноеВзятие" id="128">
 							<DataPath>ОбязательноеВзятие</DataPath>
 							<CheckBoxType>Auto</CheckBoxType>
@@ -171,6 +193,65 @@
 					<ContextMenu name="ТекстХодаКонтекстноеМеню" id="206"/>
 					<ExtendedTooltip name="ТекстХодаРасширеннаяПодсказка" id="207"/>
 				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЛоббиЧат" id="530">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комнаты и чат</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>true</ShowTitle>
+			<ExtendedTooltip name="ГруппаЛоббиЧатРасширеннаяПодсказка" id="531"/>
+			<ChildItems>
+				<InputField name="СписокКомнат" id="532">
+					<DataPath>СписокКомнат</DataPath>
+					<Width>40</Width>
+					<Height>4</Height>
+					<MultiLine>true</MultiLine>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="СписокКомнатКонтекстноеМеню" id="533"/>
+					<ExtendedTooltip name="СписокКомнатРасширеннаяПодсказка" id="534"/>
+				</InputField>
+				<UsualGroup name="ГруппаЧат" id="540">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЧатРасширеннаяПодсказка" id="541"/>
+					<ChildItems>
+						<InputField name="ТекстЧата" id="542">
+							<DataPath>ТекстЧата</DataPath>
+							<Width>36</Width>
+							<Height>3</Height>
+							<MultiLine>true</MultiLine>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ТекстЧатаКонтекстноеМеню" id="543"/>
+							<ExtendedTooltip name="ТекстЧатаРасширеннаяПодсказка" id="544"/>
+						</InputField>
+						<UsualGroup name="ГруппаЧатВвод" id="545">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЧатВводРасширеннаяПодсказка" id="546"/>
+							<ChildItems>
+								<InputField name="СообщениеЧата" id="547">
+									<DataPath>СообщениеЧата</DataPath>
+									<Width>28</Width>
+									<ContextMenu name="СообщениеЧатаКонтекстноеМеню" id="548"/>
+									<ExtendedTooltip name="СообщениеЧатаРасширеннаяПодсказка" id="549"/>
+								</InputField>
+								<Button name="ОтправитьЧат" id="550">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ОтправитьЧат</CommandName>
+									<ExtendedTooltip name="ОтправитьЧатРасширеннаяПодсказка" id="551"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<HTMLDocumentField name="ДоскаHTML" id="300">
@@ -602,6 +683,84 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="ИдИгрока" id="38">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>64</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПарольКомнаты" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СообщениеЧата" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сообщение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстЧата" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокКомнат" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комнаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоследняяСетеваяОшибка" id="43">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="СоздатьИгру" id="1">
@@ -753,6 +912,66 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СделатьХод</Action>
+		</Command>
+		<Command name="Переподключиться" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переподключиться</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить участие в партии по коду, паролю и имени/PlayerID.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Переподключиться</Action>
+		</Command>
+		<Command name="ОбновитьСписокКомнат" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комнаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать список активных комнат из общей папки.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьСписокКомнат</Action>
+		</Command>
+		<Command name="ОчиститьСтарыеПартии" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить старые и завершённые файлы партий.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОчиститьСтарыеПартии</Action>
+		</Command>
+		<Command name="ОтправитьЧат" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чат</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить сообщение в чат комнаты (до 200 символов).</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьЧат</Action>
 		</Command>
 	</Commands>
 </Form>
